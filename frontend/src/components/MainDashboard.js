@@ -30,6 +30,10 @@ const MainDashboard = () => {
     return `Good Day, ${advisorName}`;
   };
 
+
+  // Toggle state for merged right-side widget
+  const [rightTab, setRightTab] = useState('priority');
+
   return (
     <div className="main-dashboard">
       <Header 
@@ -37,44 +41,61 @@ const MainDashboard = () => {
         onSignOut={signOut}
         onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)}
       />
-      
+
       <div className="dashboard-container">
         <Sidebar 
           activeSection={activeSection}
           onSectionChange={setActiveSection}
           collapsed={sidebarCollapsed}
         />
-        
+
         <main className={`dashboard-main ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
           <div className="dashboard-content">
             <h1>{getGreeting()}</h1>
-            
+
             {activeSection === 'dashboard' && (
-              <div className="dashboard-grid">
-                {/* Client Management - Top */}
-                <div className="client-management">
-                  <h2>Client Management</h2>
-                  <ClientWidget />
+              <>
+                {/* Looker Studio Embed on Top */}
+                <div className="dashboard-looker-embed">
+                  <iframe
+                    title="Banking Dashboard Overview"
+                    width="100%"
+                    height="340"
+                    style={{ border: 'none', borderRadius: '12px', marginBottom: '2rem' }}
+                    src="https://lookerstudio.google.com/embed/u/0/reporting/f78b3bce-4809-49db-b820-1d9323a3eca7/page/Hr3TF"
+                    allowFullScreen
+                  ></iframe>
                 </div>
 
-                {/* Portfolio Overview - Top */}
-                <div className="portfolio-overview">
-                  <h2>Portfolio Insights</h2>
-                  <PortfolioWidget />
+                {/* Two-column layout below embed */}
+                <div className="dashboard-row-2col">
+                  {/* Left: Client Management */}
+                  <div className="dashboard-col dashboard-col-left">
+                    <h2>Client Management</h2>
+                    <ClientWidget />
+                  </div>
+                  {/* Right: Toggle between Priority Alerts and Next Best Actions */}
+                  <div className="dashboard-col dashboard-col-right">
+                    <div className="dashboard-toggle-tabs">
+                      <button
+                        className={rightTab === 'priority' ? 'active' : ''}
+                        onClick={() => setRightTab('priority')}
+                      >
+                        Priority Actions
+                      </button>
+                      <button
+                        className={rightTab === 'nba' ? 'active' : ''}
+                        onClick={() => setRightTab('nba')}
+                      >
+                        Next Best Actions
+                      </button>
+                    </div>
+                    <div className="dashboard-toggle-content">
+                      {rightTab === 'priority' ? <TodoWidget /> : <NBAWidget />}
+                    </div>
+                  </div>
                 </div>
-
-                {/* Priority Alerts - Bottom */}
-                <div className="priority-alerts">
-                  <h2>Priority Alerts</h2>
-                  <TodoWidget />
-                </div>
-
-                {/* Next Best Actions - Bottom */}
-                <div className="nba-section">
-                  <h2>Next Best Actions</h2>
-                  <NBAWidget />
-                </div>
-              </div>
+              </>
             )}
 
             {activeSection === 'todo' && (

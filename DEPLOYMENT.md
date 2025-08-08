@@ -50,7 +50,7 @@ gcloud auth application-default login
 ### Step 1: Setup Database
 ```bash
 # Create sample banking data (8 comprehensive tables)
-cd /home/prakashb/Prakash/project_hackathon
+cd /home/prakashb/Prakash/wealth_hackathon
 ./setup_data.sh
 ```
 

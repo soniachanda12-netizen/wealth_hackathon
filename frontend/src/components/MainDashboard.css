@@ -301,3 +301,91 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+
+/* --- Custom Dashboard Layout for Looker + 2-Column Section --- */
+.dashboard-looker-embed {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.dashboard-row-2col {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.dashboard-col {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.06);
+  padding: 1.5rem 1.25rem;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.dashboard-col-left {
+  max-width: 420px;
+  min-width: 320px;
+}
+
+.dashboard-col-right {
+  flex: 2 1 0;
+  min-width: 320px;
+  margin-left: 0.5rem;
+}
+
+.dashboard-toggle-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.dashboard-toggle-tabs button {
+  flex: 1 1 0;
+  padding: 0.75rem 1.25rem;
+  background: #f3f4f6;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px 8px 0 0;
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dashboard-toggle-tabs button.active {
+  background: #6366f1;
+  color: #fff;
+  border-bottom: 2.5px solid #6366f1;
+  z-index: 2;
+}
+.dashboard-toggle-tabs button:not(.active):hover {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+.dashboard-toggle-content {
+  background: #f8fafc;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 1px 2px 0 rgba(99,102,241,0.04);
+  padding: 1.25rem 1rem 1rem 1rem;
+  min-height: 320px;
+}
+
+@media (max-width: 1100px) {
+  .dashboard-row-2col {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .dashboard-col-left, .dashboard-col-right {
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .dashboard-looker-embed iframe {
+    height: 200px;
+  }
+  .dashboard-toggle-content {
+    min-height: 180px;
+    padding: 0.75rem 0.5rem 0.5rem 0.5rem;
+  }
+}
