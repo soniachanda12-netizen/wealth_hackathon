@@ -4,6 +4,13 @@
 
 Once your build is complete, test each feature with these commands:
 
+## Try From UI
+https://apialchemistproject-frontend-608187465720.us-central1.run.app/
+
+**Expected**: All features visible on UI should work
+
+# Try Backend APIs
+
 ### 1. Daily To-Do Tasks
 ```bash
 curl https://apialchemistproject-backend-608187465720.us-central1.run.app/todo
@@ -58,14 +65,6 @@ curl -X POST \
 ```
 **Expected**: Structured summary with key points and action items
 
-### 8. Data Ingestion
-```bash
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -d '{"data": "New client referral: Sarah Johnson, tech executive, approximately $4M net worth, conservative risk tolerance"}' \
-  https://apialchemistproject-backend-608187465720.us-central1.run.app/ingest
-```
-**Expected**: Structured client data extracted from natural language
 
 ## Key Points for Understanding
 
@@ -75,20 +74,3 @@ curl -X POST \
 3. **BigQuery** → Provides real banking data context  
 4. **Vertex AI** → Generates intelligent responses
 5. **Response** → Returns to frontend widgets
-
-### AI Integration Points:
-- **NBA**: Analyzes client data to recommend actions
-- **Chat**: Full conversational banking expert
-- **Drafting**: Generates professional communications  
-- **Calendar**: Parses natural language for events
-- **Summarization**: Extracts key insights from content
-- **Ingestion**: Converts unstructured text to data
-
-### Sample Data Includes:
-- **5 sample clients** with portfolio data
-- **10+ advisor tasks** with priorities
-- **Market data** for analytics
-- **Meeting history** and communications
-- **Trade history** and performance metrics
-
-Your hackathon demo will show a complete, working private banking advisor copilot with real AI capabilities!

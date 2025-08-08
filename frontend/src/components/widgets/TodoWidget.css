@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  font-family: inherit;
 }
 
 .completed-count {
@@ -126,14 +127,19 @@
 .todo-content {
   flex: 1;
   min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .todo-text {
-  margin: 0 0 0.5rem 0;
-  font-size: 0.9rem;
+  margin: 0;
+  font-size: 0.98rem;
   line-height: 1.4;
   color: #374151;
   word-wrap: break-word;
+  font-family: inherit;
 }
 
 .todo-meta {
@@ -141,6 +147,7 @@
   align-items: center;
   gap: 0.75rem;
   flex-wrap: wrap;
+  margin-left: 1rem;
 }
 
 /* Priority Badges */
@@ -185,10 +192,16 @@
     padding: 0.75rem;
   }
   
-  .todo-meta {
+  .todo-content {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+  }
+  .todo-meta {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-left: 0;
   }
   
   .task-stats {

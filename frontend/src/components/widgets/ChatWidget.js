@@ -128,22 +128,44 @@ const ChatWidget = ({ expanded = false }) => {
           </div>
         )}
         
-        {messages.length === 1 && (
-          <div className="quick-questions">
-            <div className="quick-questions-header">Try asking:</div>
-            <div className="quick-questions-list">
-              {quickQuestions.map((question, index) => (
-                <button
-                  key={index}
-                  className="quick-question"
-                  onClick={() => setInputMessage(question)}
-                >
-                  {question}
-                </button>
-              ))}
-            </div>
+        {/* Always show quick questions below input */}
+        <form onSubmit={sendMessage} className="chat-input-form">
+          <div className="input-container">
+            <input
+              type="text"
+              value={inputMessage}
+              onChange={(e) => setInputMessage(e.target.value)}
+              placeholder="Ask me about your clients, portfolios, or tasks..."
+              disabled={loading}
+              className="chat-input"
+            />
+            <button 
+              type="submit" 
+              disabled={!inputMessage.trim() || loading}
+              className="send-button"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+              </svg>
+            </button>
           </div>
-        )}
+        </form>
+
+        <div className="quick-questions always-visible">
+          <div className="quick-questions-header">Try asking:</div>
+          <div className="quick-questions-list">
+            {quickQuestions.map((question, index) => (
+              <button
+                key={index}
+                className="quick-question"
+                onClick={() => setInputMessage(question)}
+              >
+                {question}
+              </button>
+            ))}
+          </div>
+        </div>
         
         <form onSubmit={sendMessage} className="chat-input-form">
           <div className="input-container">

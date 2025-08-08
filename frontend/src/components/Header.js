@@ -13,8 +13,8 @@ const Header = ({ user, onSignOut, onToggleSidebar }) => {
           </svg>
         </button>
         <div className="header-title">
-          <h1>{user?.name ? `${user.name}'s Banking Platform` : 'Private Banking Advisor'}</h1>
-          <span className="header-subtitle">Wealth Management Platform</span>
+          <h1>Wealth Advisor</h1>
+          <span className="header-subtitle">AI-PoweredPlatform</span>
         </div>
       </div>
 

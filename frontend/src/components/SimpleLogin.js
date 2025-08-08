@@ -50,7 +50,7 @@ const SimpleLogin = ({ children }) => {
     return (
       <div className="simple-login-container">
         <div className="simple-login-card">
-          <h1>Welcome to Your Banking Platform</h1>
+          <h1>Welcome to Advisor Copilot</h1>
           <div className="loading-spinner">
             <div className="spinner"></div>
             <p>Initializing secure authentication...</p>
@@ -64,9 +64,9 @@ const SimpleLogin = ({ children }) => {
   return (
     <div className="simple-login-container">
       <div className="simple-login-card">
-        <h1>Welcome to Your Banking Platform</h1>
-        <p>Sign in with your Google account to access your banking dashboard</p>
-        
+        <h1>Welcome to Advisor Copilot</h1>
+        <p>Sign in with your Google account to access your advisor dashboard</p>
+
         {advisorData && (
           <div className="advisor-info">
             <p><small>Current Advisor: {advisorData.name} ({advisorData.advisor_id})</small></p>
@@ -103,7 +103,7 @@ const SimpleLogin = ({ children }) => {
         
         <div className="info-text">
           <p><small>Demo authentication - your Google email will determine which advisor's data to show</small></p>
-          <p><small>Default advisor (ADV001 - John Smith) will be used if your email is not found in the advisor database</small></p>
+          <p><small>Default advisor details will be be shown if your email is not found</small></p>
         </div>
       </div>
     </div>

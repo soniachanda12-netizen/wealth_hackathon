@@ -57,7 +57,7 @@ cd /home/prakashb/Prakash/wealth_hackathon
 ### Step 2: Rebuild and Deploy Backend Service
 ```bash
 # IMPORTANT: Navigate to the correct directory first
-cd /home/prakashb/Prakash/project_hackathon
+cd /home/prakashb/Prakash/wealth_hackathon
 
 # Verify you're in the right location
 pwd

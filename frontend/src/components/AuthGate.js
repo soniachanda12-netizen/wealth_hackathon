@@ -24,7 +24,7 @@ const AuthGate = ({ children }) => {
       <div className="auth-gate">
         <div className="auth-container">
           <div className="auth-header">
-            <h1>Welcome to Your Banking Platform</h1>
+            <h1>Welcome to Advisor Copilot</h1>
             <p>Initializing secure authentication...</p>
           </div>
           <div className="loading-spinner">
@@ -53,7 +53,7 @@ const AuthGate = ({ children }) => {
     <div className="auth-gate">
       <div className="auth-container">
         <div className="auth-header">
-          <h1>Welcome to Your Banking Platform</h1>
+          <h1>Welcome to Advisor Copilot</h1>
           <p>Secure authentication required to access the application</p>
         </div>
 

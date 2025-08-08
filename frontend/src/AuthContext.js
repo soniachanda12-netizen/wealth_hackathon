@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { extractEmailFromIdToken } from './utils/jwt';
 
 const AuthContext = createContext();
 
@@ -110,12 +111,15 @@ export const AuthProvider = ({ children }) => {
     try {
       // Get identity token from Google
       const idToken = response.credential;
-      
+      // Extract email from token
+      const email = extractEmailFromIdToken(idToken);
       // Store token and user info
       localStorage.setItem('gcp_token', idToken);
+      if (email) {
+        localStorage.setItem('user_email', email);
+      }
       setToken(idToken);
-      setUser({ authenticated: true, serviceAccount: false });
-      
+      setUser({ authenticated: true, serviceAccount: false, email });
       console.log('User authentication successful');
     } catch (error) {
       console.error('User authentication failed:', error);

@@ -5,6 +5,7 @@ import Header from './Header';
 import TodoWidget from './widgets/TodoWidget';
 import NBAWidget from './widgets/NBAWidget';
 import PortfolioWidget from './widgets/PortfolioWidget';
+import ClientPortfolioPage from './ClientPortfolioPage';
 import ClientWidget from './widgets/ClientWidget';
 import ChatWidget from './widgets/ChatWidget';
 import MessageDraftWidget from './widgets/MessageDraftWidget';
@@ -60,8 +61,8 @@ const MainDashboard = () => {
                   <iframe
                     title="Banking Dashboard Overview"
                     width="100%"
-                    height="340"
-                    style={{ border: 'none', borderRadius: '12px', marginBottom: '2rem' }}
+                    height="110"
+                    style={{ border: 'none', borderRadius: '12px', marginBottom: '1.2rem', minHeight: '90px', maxHeight: '130px' }}
                     src="https://lookerstudio.google.com/embed/u/0/reporting/f78b3bce-4809-49db-b820-1d9323a3eca7/page/Hr3TF"
                     allowFullScreen
                   ></iframe>
@@ -71,7 +72,6 @@ const MainDashboard = () => {
                 <div className="dashboard-row-2col">
                   {/* Left: Client Management */}
                   <div className="dashboard-col dashboard-col-left">
-                    <h2>Client Management</h2>
                     <ClientWidget />
                   </div>
                   {/* Right: Toggle between Priority Alerts and Next Best Actions */}
@@ -105,10 +105,15 @@ const MainDashboard = () => {
               </div>
             )}
 
+
             {activeSection === 'clients' && (
               <div className="section-content">
                 <ClientWidget expanded={true} />
               </div>
+            )}
+
+            {activeSection === 'client-portfolio' && (
+              <ClientPortfolioPage />
             )}
 
             {activeSection === 'calendar' && (
