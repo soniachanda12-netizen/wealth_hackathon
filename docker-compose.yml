@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - PROJECT_ID=apialchemists-1-47b9
+      - DATASET_NAME=apialchemists
+      - LOCATION=us-central1
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+    volumes:
+      - "/home/prakashb/Desktop/Sonia Hacathon/apialchemists-1-47b9-556d040d8636.json:/app/credentials.json:ro"
+    container_name: advisor-backend
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    container_name: advisor-frontend

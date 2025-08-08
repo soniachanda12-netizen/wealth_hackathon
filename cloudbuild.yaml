@@ -1,0 +1,13 @@
+# Google Cloud Build config for apialchemistproject
+timeout: 1200s  # 20 minutes for AI package installations
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/apialchemists-1-47b9/apialchemistproject-backend', '.']
+  timeout: 900s  # 15 minutes for backend build
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/apialchemists-1-47b9/apialchemistproject-frontend', './frontend']
+  timeout: 600s  # 10 minutes for frontend build
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/apialchemists-1-47b9/apialchemistproject-backend']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/apialchemists-1-47b9/apialchemistproject-frontend']

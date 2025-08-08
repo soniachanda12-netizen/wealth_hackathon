@@ -1,0 +1,469 @@
+/* ClientWidget Specific Styles */
+@import './BaseWidget.css';
+
+.client-widget .client-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.overview-stat {
+  background: linear-gradient(135deg, #fafbfc 0%, #ffffff 100%);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.overview-stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-radius: 0 0 3px 3px;
+}
+
+.stat-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Client List */
+.client-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* New Client Management Styles */
+.client-name-location {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.client-location {
+  font-size: 12px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.tier-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.tier-badge.platinum {
+  background: linear-gradient(135deg, #e5e7eb, #9ca3af);
+}
+
+.tier-badge.gold {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+}
+
+.tier-badge.silver {
+  background: linear-gradient(135deg, #9ca3af, #6b7280);
+}
+
+.client-financial {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.portfolio-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #059669;
+}
+
+.net-worth {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.client-additional-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.investment-objective {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.summary-section {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.summary-section h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.summary-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-item .stat-label {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.stat-item .stat-value {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.client-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: #fafbfc;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.client-item:hover {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.client-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.client-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.client-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.client-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.client-details {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.client-tier {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.client-tier.platinum {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.client-tier.gold {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  color: #d97706;
+  border: 1px solid #f59e0b;
+}
+
+.client-tier.silver {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  color: #64748b;
+  border: 1px solid #94a3b8;
+}
+
+.client-tier.bronze {
+  background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+  color: #dc2626;
+  border: 1px solid #ef4444;
+}
+
+.client-phone {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.client-location {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.client-metrics {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #059669;
+  margin-bottom: 0.125rem;
+}
+
+.metric-label {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.client-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.last-contact {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-align: right;
+}
+
+.contact-status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.contact-status.recent {
+  background: #f0fdf4;
+  color: #059669;
+  border: 1px solid #bbf7d0;
+}
+
+.contact-status.overdue {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.contact-status.due-soon {
+  background: #fffbeb;
+  color: #d97706;
+  border: 1px solid #fed7aa;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.action-btn.primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+}
+
+.action-btn.primary:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  transform: translateY(-1px);
+}
+
+.action-btn.secondary {
+  background: #f8fafc;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+.action-btn.secondary:hover {
+  background: #f1f5f9;
+  border-color: #d1d5db;
+}
+
+/* Client Search and Filters */
+.client-filters {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  color: #374151;
+  font-size: 0.85rem;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .client-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .client-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .client-info {
+    width: 100%;
+  }
+  
+  .client-actions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .client-metrics {
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .client-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-input {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-overview {
+    grid-template-columns: 1fr;
+  }
+  
+  .overview-stat {
+    padding: 0.75rem;
+  }
+  
+  .client-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .client-metrics {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .action-buttons {
+    width: 100%;
+    justify-content: stretch;
+  }
+  
+  .action-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}

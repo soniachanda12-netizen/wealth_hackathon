@@ -1,0 +1,113 @@
+import React, { useState } from 'react';
+import { useAuth } from '../AuthContextSimple';
+import './SimpleLogin.css';
+
+const SimpleLogin = ({ children }) => {
+  const { user, advisorData, signInWithGoogle, loading } = useAuth();
+  const [isSigningIn, setIsSigningIn] = useState(false);
+
+  // If user is authenticated, show the main app
+  if (user && user.authenticated) {
+    return <>{children}</>;
+  }
+
+
+  const handleSignIn = async () => {
+    setIsSigningIn(true);
+    let fallbackTimeout;
+    try {
+      // Fallback to default user if Google OAuth does not redirect in 1.5s
+      fallbackTimeout = setTimeout(async () => {
+        console.warn('⏰ Google OAuth did not redirect in 1.5s, falling back to default user.');
+        try {
+          const authResult = await signInWithGoogle();
+          console.log('Fallback authentication successful:', authResult);
+        } catch (fallbackError) {
+          console.error('Fallback sign in error:', fallbackError);
+          alert('Fallback sign in failed. Please try again.');
+        } finally {
+          setIsSigningIn(false);
+        }
+      }, 1500);
+
+      const authResult = await signInWithGoogle();
+      clearTimeout(fallbackTimeout);
+      console.log('Authentication successful:', authResult);
+      if (authResult.advisor) {
+        console.log(`Welcome ${authResult.name}! Using advisor: ${authResult.advisor.name} (${authResult.advisor.advisor_id})`);
+      }
+    } catch (error) {
+      clearTimeout(fallbackTimeout);
+      console.error('Sign in error:', error);
+      alert('Sign in failed. Please try again.');
+    } finally {
+      setIsSigningIn(false);
+    }
+  };
+
+  // Show loading state during authentication initialization
+  if (loading) {
+    return (
+      <div className="simple-login-container">
+        <div className="simple-login-card">
+          <h1>Welcome to Your Banking Platform</h1>
+          <div className="loading-spinner">
+            <div className="spinner"></div>
+            <p>Initializing secure authentication...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Show sign-in page
+  return (
+    <div className="simple-login-container">
+      <div className="simple-login-card">
+        <h1>Welcome to Your Banking Platform</h1>
+        <p>Sign in with your Google account to access your banking dashboard</p>
+        
+        {advisorData && (
+          <div className="advisor-info">
+            <p><small>Current Advisor: {advisorData.name} ({advisorData.advisor_id})</small></p>
+            {advisorData.isDefault && (
+              <p><small>Using default advisor - sign in with your advisor email for personalized data</small></p>
+            )}
+          </div>
+        )}
+        
+        <div id="google-signin-button"></div>
+        
+        <button 
+          onClick={handleSignIn} 
+          disabled={isSigningIn}
+          className="sign-in-button"
+        >
+          {isSigningIn ? (
+            <>
+              <div className="button-spinner"></div>
+              Signing in...
+            </>
+          ) : (
+            <>
+              <svg width="18" height="18" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+              Sign in with Google
+            </>
+          )}
+        </button>
+        
+        <div className="info-text">
+          <p><small>Demo authentication - your Google email will determine which advisor's data to show</small></p>
+          <p><small>Default advisor (ADV001 - John Smith) will be used if your email is not found in the advisor database</small></p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SimpleLogin;

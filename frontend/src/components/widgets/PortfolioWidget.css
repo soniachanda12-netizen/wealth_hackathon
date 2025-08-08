@@ -1,0 +1,955 @@
+/* Modern Portfolio Widget Styles */
+@import './BaseWidget.css';
+
+.portfolio-widget.modern {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.portfolio-widget.modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-widget.modern.expanded {
+  grid-column: 1 / -1;
+  min-height: 600px;
+}
+
+/* Modern Header */
+.widget-header.modern {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-bottom: none;
+}
+
+.widget-header.modern .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.widget-header.modern h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+}
+
+.header-metrics {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* View Toggle Buttons */
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+.toggle-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.toggle-btn.active {
+  background: rgba(255, 255, 255, 0.9);
+  color: #667eea;
+  border-color: white;
+  font-weight: 600;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+
+.metric-value.primary {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+}
+
+.advisor-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+.refresh-btn.modern {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+}
+
+.refresh-btn.modern:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(180deg);
+}
+
+/* Modern Tabs */
+.widget-tabs.modern {
+  display: flex;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0;
+}
+
+.tab-btn.modern {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #64748b;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.tab-btn.modern:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.tab-btn.modern.active {
+  color: #667eea;
+  background: white;
+}
+
+.tab-btn.modern.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+/* Modern Content */
+.widget-content.modern {
+  padding: 1.5rem;
+  background: white;
+}
+
+/* Overview Content */
+.overview-content.modern {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.metric-card.premium {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card.premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #4facfe);
+}
+
+.metric-card.premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.metric-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.metric-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metric-value.large {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.metric-change {
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.metric-change.positive {
+  color: #059669;
+}
+
+.metric-change.negative {
+  color: #dc2626;
+}
+
+.metric-change.neutral {
+  color: #6b7280;
+}
+
+/* Quick Allocation */
+.quick-allocation.modern {
+  margin-top: 1rem;
+}
+
+.quick-allocation.modern h4 {
+  margin: 0 0 1rem 0;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.allocation-grid.compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.allocation-card.compact {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.allocation-card.compact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.asset-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.asset-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.asset-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.asset-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.asset-percentage {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Allocation Content */
+.allocation-content.modern {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.allocation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.allocation-header h4 {
+  margin: 0;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.allocation-summary {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.allocation-table.modern {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1.5fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f9fafb;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #374151;
+}
+
+.table-row.modern {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1.5fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid #f3f4f6;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.table-row.modern:hover {
+  background: #f9fafb;
+}
+
+.asset-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.asset-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.asset-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.asset-info .asset-name {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.asset-count {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.weight-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.weight-bar {
+  flex: 1;
+  height: 8px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.weight-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+.weight-text {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #374151;
+  min-width: 40px;
+}
+
+.performance-cell.positive {
+  color: #059669;
+  font-weight: 500;
+}
+
+.performance-cell.negative {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+/* Performance Content */
+.performance-content.modern {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.performance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.performance-header h4 {
+  margin: 0;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.performance-period {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.period-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.period-btn:hover {
+  background: #f9fafb;
+}
+
+.period-btn.active {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+}
+
+.holdings-grid h4 {
+  margin: 0 0 1rem 0;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.holdings-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.holding-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.holding-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.holding-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.holding-symbol {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.holding-name {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.holding-metrics {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.holding-value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.holding-change.positive {
+  color: #059669;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.holding-change.negative {
+  color: #dc2626;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Risk Content */
+.risk-content.modern {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.risk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.risk-header h4 {
+  margin: 0;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.score-gauge {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gauge-svg {
+  margin-bottom: -10px;
+}
+
+.gauge-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.gauge-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+.risk-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.risk-metric-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.risk-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.risk-icon.moderate {
+  background: #f59e0b;
+}
+
+.risk-icon.low {
+  background: #10b981;
+}
+
+.risk-icon.high {
+  background: #ef4444;
+}
+
+.risk-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.risk-value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.risk-label {
+  font-size: 0.875rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.risk-description {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.risk-breakdown h4 {
+  margin: 0 0 1rem 0;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.risk-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.risk-bar-item {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.risk-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.risk-asset-name {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.risk-exposure {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.risk-bar-track {
+  height: 8px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.risk-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+.risk-bar-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.risk-volatility {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.risk-clients {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Loading States */
+.spinner-modern {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.skeleton-row {
+  height: 20px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.skeleton-row.short {
+  width: 60%;
+}
+
+.skeleton-row.medium {
+  width: 80%;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Error State */
+.error-state.modern {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-state.modern svg {
+  color: #ef4444;
+}
+
+.error-state.modern p {
+  color: #374151;
+  font-weight: 500;
+  margin: 0;
+}
+
+.error-state.modern small {
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+/* Looker Studio Integration Styles */
+.looker-studio-container {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 12px;
+  margin: 1rem;
+  border: 2px solid #e2e8f0;
+}
+
+.looker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.looker-header h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.looker-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.feature-badge {
+  padding: 0.375rem 0.75rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+}
+
+.looker-dashboards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dashboard-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.dashboard-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-section h5 {
+  margin: 0 0 1rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.looker-embed {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.looker-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.looker-embed::before {
+  content: 'Loading Looker Studio Dashboard...';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #64748b;
+  font-weight: 500;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Professional Loading State */
+.looker-embed.loading::before {
+  content: '🔄 Loading Professional Analytics...';
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .allocation-grid.compact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .table-header,
+  .table-row.modern {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .holdings-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .risk-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .looker-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .looker-badges {
+    justify-content: flex-start;
+  }
+  
+  .view-toggle {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}
